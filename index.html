@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transitioning the Web to HTTPS</title>
+    <meta charset='utf-8'>
+    <script src='http://www.w3.org/Tools/respec/respec-w3c-common'
+            async class='remove'></script>
+    <script class='remove'>
+      var respecConfig = {
+          specStatus: "draft-finding",
+          shortName:  "web-https",
+          editors: [
+                {   name:       "Mark Nottingham",
+                    url:        "https://www.mnot.net/",
+    			}
+          ],
+          wg:           "Technical Architecture Group",
+          wgURI:        "http://www.w3.org/2001/tag/",
+          wgPublicList: "www-tag",
+          wgPatentURI:  "http://www.w3.org/2001/tag/disclosures",
+          noTOC: true,
+          localBiblio:  {
+              "powerful-features": {
+                  title:    "Requirements for Powerful Features"
+              ,   href:     "http://www.w3c.org/TR/powerful-features/"
+              ,   authors:  [
+                      "Mike West"
+              ]
+              ,   status:   "ED"
+              ,   publisher:  "W3C"
+              }
+          }
+      };
+    </script>
+</head>
+<body>
+  <section id="abstract">
+      <p>This finding documents the TAG’s position on the use of encryption on the Web.</p>
+  </section>
+  <section id="sotd">
+      <p><em>This is a draft TAG finding; it does not yet have any standing.</em></p>
+      <p>See the <a href="https://github.com/w3ctag/web-https">repository</a> for source and issues
+      list.</p>
+  </section>
+
+    <h2>The Web and Encryption</h2>
+
+    <p>
+        Over the last 25 years, the Web has grown into a platform for much of the world’s
+        communication, whether it be information sharing, community building, commerce, education,
+        social networking, or underpinning applications.
+    </p>
+    <p>
+        In meeting these needs, the Web’s trustworthiness has become critical to its success. If a
+        person cannot trust that they are communicating with the party they intend, they can’t use
+        the Web to shop safety; if they cannot be assured that Web-delivered news isn’t modified in
+        transit, they won’t trust it as much. If someone cannot be assured that they’re talking
+        only to the intended recipients, they might avoid social networking.
+    </p>
+    <p>
+        These important properties of authentication, integrity and confidentiality are best — if
+        imperfectly — provided on the Web by Transport Layer Security (TLS) [[RFC5246]], through
+        use of HTTPS URLs.
+    </p>
+    <p>
+        In the past, Web sites have deployed HTTPS rarely; often, only when financial transactions
+        take place. More recently, however, it has become apparent that nearly all activity on the
+        Web can be considered sensitive, since it now plays such a central role in everyday life.
+    </p>
+    <p>
+        Furthermore, security on the Web has proven to be quite subtle thanks to the interactions
+        between JavaScript, CSS and persistent browser storage mechanisms. If an attacker can
+        modify Web content in transit, the power of the Web platform we are defining can easily be
+        turned against the user (or the site they are using).        
+    </p>
+    <p>
+        Finally, attacks like Pervasive Monitoring [[RFC7258]] only increase the urgency and
+        relevance of establishing a basis for trust on the entire Web.
+    </p>
+    <p>
+        Therefore, the TAG finds that the Web platform should <strong>actively prefer secure
+        origins</strong> — typically, by encouraging use of HTTPS URLs instead of HTTP ones.
+        Furthermore, the <strong>end-to-end nature of TLS encryption must not be
+        compromised</strong> on the Web, in order to preserve this trust.
+    </p>
+    <p>
+        We recognize that end-to-end encryption will not solve all — or even many — security
+        problems in the Web platform. However, it does serve as an important and necessary baseline
+        for further developments. This is especially true as the platform becomes more powerful,
+        and thus more dangerous to use "in the clear".
+    </p>
+    <p>
+        Likewise, we realize that transitioning to a secure origin may not be easy for all sites.
+        While the CPU overhead of TLS has been largely overcome by advances in processor
+        technology, the Web platform itself makes changing schemes difficult, both because URLs
+        themselves need to change, and because the URL scheme is also used to trigger different
+        behavior in many platform features. These problems ought to be viewed as opportunities for
+        improvement in the platform, rather than reasons to stop adoption of encryption.
+    </p>
+    <p>
+        We acknowledge that in some cases, networks currently rely upon cleartext access to network
+        flows to impose policy (e.g., filtering) and optimize content. However, we believe that
+        policy imposition is best performed at the endpoints of a connection (although we
+        acknowledge that more work needs to be done to facilitate this, from both ends).
+        Furthermore, providing network-based optimization is not a valid reason to violate trust on
+        the Web, and should be made unnecessary in the medium-to-long term by other improvements in
+        the Web platform (see the <a href="http://www.w3.org/2010/webperf/">Web Performance Working
+        Group</a>, for example).
+    </p>
+    <p>
+        Finally, some have expressed fear that an encrypted Web will benefit those with purposes
+        that are distasteful or even dangerous. We reject these arguments; the Web is a tool that
+        can be used to many ends, and possible misuse does not imply that the tool should be so
+        limited as to not fit its purpose.
+    </p>
+
+    <h3>Implementation</h3>
+    
+    <p>
+        Where appropriate, the TAG will liaise with W3C Working Groups as well as external parties
+        to implement this finding.
+    </p>
+    <p>
+        In particular, the <a href="http://www.w3.org/2011/webappsec/">Web Applications Security
+        Working Group</a> has begun work on [[powerful-features]] to technically define when a Web
+        platform feature should require a secure origin.
+    </p>
+
+    <h2>Acknowledgements</h2>
+
+    <p>
+        This finding builds upon and explicitly acknowledges the Internet Architecture Board’s <a
+        href="http://www.iab.org/2014/11/14/iab-statement-on-internet-confidentiality/">Statement on
+        Internet Confidentiality</a> and the Chromium Security Team’s “<a href="http://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features"
+        >Prefer Secure Origins For Powerful New Features</a>”.
+    </p>
+
+</body>
+</html>
