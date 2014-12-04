@@ -87,7 +87,7 @@
         We recognize that end-to-end encryption will not solve all — or even many — security
         problems in the Web platform. However, it does serve as an important and necessary baseline
         for further developments. This is especially true as the platform becomes more powerful,
-        and thus more dangerous to use "in the clear".
+        and thus more dangerous to use “in the clear”.
     </p>
     <p>
         Likewise, we realize that transitioning to a secure origin may not be easy for all sites.
@@ -117,13 +117,43 @@
     <h3>Implementation</h3>
     
     <p>
-        Where appropriate, the TAG will liaise with W3C Working Groups as well as external parties
-        to implement this finding.
+        Actively preferring secure origins has a number of implications for Web specifications; the
+        most immediate is that new, "powerful" features</strong> should be specified to either
+        require them, or give them preferential treatment. The <a
+        href="http://www.w3.org/2011/webappsec/">Web Applications Security Working Group</a> has
+        begun work on [[powerful-features]] to fully specify this, along with how existing
+        specifications should be handled. The TAG will work with WebAppSec to develop this
+        document.
     </p>
     <p>
-        In particular, the <a href="http://www.w3.org/2011/webappsec/">Web Applications Security
-        Working Group</a> has begun work on [[powerful-features]] to technically define when a Web
-        platform feature should require a secure origin.
+        Simultaneously, reducing the costs of switching to and using HTTPS should be a continuing
+        area of focus for the W3C. In particular, features that change behavior based upon the URL
+        scheme ("http" to "https") should be examined to see if these differences can either be
+        eliminated or controlled by authors, providing that there is no loss of security or
+        surprising changes in behavior. For example, the [[referrer-policy]] specification is
+        offering more control over the Referer HTTP header, as part of [[CSP2]]. The TAG encourages
+        work to identify similar areas of friction and potential mitigations.
+    </p>
+    <p>
+        Another source of friction is deploying HTTPS on hosts that aren’t globally unique (e.g.,
+        private network address ranges [[RFC1918]]). The TAG encourages work in this area.
+    </p>
+    <p>
+        Increasing the trustworthiness of the PKI system (on which HTTPS is currently dependent) is
+        also of interest; we are tracking efforts like <a
+        href="http://www.certificate-transparency.org">Certificate Transparency</a> [[RFC6962]] in
+        the IETF, and will encourage activity within the W3C when appropriate.
+    </p>
+    <p>
+        We note the continued deployment of so-called “split browsers,” as well as the continuing
+        practice of inserting new Certificate Authorities into a user's trust store without
+        informing them of the power this grants. While both have legitimate uses, the implications
+        for trust on the Web should be examined.
+    </p>
+    <p>
+        Finally, imposing policy in endpoints implies creation of a browser API for doing so. The
+        TAG encourages work in this area, provided there is a good chance of implementation and a
+        reasonable outcome.
     </p>
 
     <h2>Acknowledgements</h2>
