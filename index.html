@@ -148,22 +148,30 @@
         work to identify similar areas of friction and potential mitigations.
     </p>
     <p>
-        Another source of friction is deploying HTTPS in some networks; for example, in private
-        network address ranges [[RFC1918]]. The TAG encourages work in this area, while
-        acknowledging that the W3C is not necessarily the best venue for it.
-    </p>
-    <p>
-        Increasing the trustworthiness of the PKI system (on which HTTPS is currently dependent) is
-        also of interest; we are tracking efforts like <a
-        href="http://www.certificate-transparency.org">Certificate Transparency</a> [[RFC6962]] in
-        the IETF, and will encourage activity within the W3C when appropriate.
-    </p>
-    <p>
-        We note the continued deployment of so-called “split browsers,”  which automatically proxy
-        and transform traffic, sometimes including HTTPS traffic, as well as the continuing
-        practice of inserting new Certificate Authorities into a user's trust store without
-        informing them of the power this grants. While both have legitimate uses, the implications
-        for trust on the Web should be examined.
+        To facilitate this policy, the TAG encourages continuing improvement of both TLS and its
+        use in Web protocols, while acknowledging that some of this work may not be best suited for
+        the W3C. In particular:
+        <ul>          
+          <li>
+              Deploying HTTPS is problematic in some networks; for example, in private network
+              address ranges [[RFC1918]], where it is impractical to obtain or use a certificate,
+              because these addresses are not globally unique. Some other mechanism of establishing
+              identity for local communication is necessary.
+          </li>
+          <li>
+              Increasing the trustworthiness of the PKI system (on which HTTPS is currently
+              dependent) remains a challenge. We are tracking efforts like <a
+              href="http://www.certificate-transparency.org">Certificate Transparency</a>
+              [[RFC6962]] in the IETF, and will encourage activity within the W3C when appropriate.
+          </li>
+          <li>
+              TLS is an end-to-end protocol, but we see increased deployment of so-called “split
+              browsers” which automatically proxy and transform traffic (sometimes including
+              HTTPS), as well as the continuing practice of inserting new Certificate Authorities
+              into a user's trust store without informing them of the power this grants. While both
+              have legitimate uses, the implications for trust on the Web should be examined.
+          </li>
+        </ul>
     </p>
     <p>
         Finally, imposing policy in endpoints implies creation of a browser API for doing so. The
