@@ -113,13 +113,19 @@
     </p>
     <p>
         We acknowledge that in some cases, networks currently rely upon cleartext access to network
-        flows to impose policy (e.g., filtering) and optimize content. However, we believe that
-        policy imposition is best performed at the endpoints of a connection (although we
-        acknowledge that more work needs to be done to facilitate this, from both ends).
-        Furthermore, providing network-based optimization is not a valid reason to violate trust on
-        the Web, and should be made unnecessary in the medium-to-long term by other improvements in
-        the Web platform (see the <a href="http://www.w3.org/2010/webperf/">Web Performance Working
-        Group</a>, for example).
+        flows to impose policy (e.g., filtering) and optimize content (e.g., with "transparent
+        proxies", a.k.a. interception proxies). However, we believe that policy imposition is best
+        performed at the endpoints of a connection (although we acknowledge that more work needs to
+        be done to facilitate this, from both ends). Furthermore, providing network-based
+        optimization is not a valid reason to violate trust on the Web, and should be made
+        unnecessary in the medium-to-long term by other improvements in the Web platform (see the
+        <a href="http://www.w3.org/2010/webperf/">Web Performance Working Group</a>, for example).
+    </p>
+    <p>
+        We recognize that as this policy is implemented, it will further reduce the utility of
+        shared HTTP caches -- a trend started by the transition of many popular Web sites to HTTPS
+        (and thus, loss of a high proportion of cache hits). This is an unfortunate outcome, and we
+        should continue to examine how efficiency can be gained without compromising security.
     </p>
     <p>
         Finally, some have expressed fear that an encrypted Web will benefit those with purposes
