@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Transitioning the Web to HTTPS</title>
+    <title>Securing the Web</title>
     <meta charset='utf-8'>
     <script src='//www.w3.org/Tools/respec/respec-w3c-common'
             async class='remove'></script>
@@ -53,7 +53,8 @@
 </head>
 <body>
   <section id="abstract">
-      <p>This finding documents the TAG’s position on the use of encryption on the Web.</p>
+      <p>This finding documents the TAG’s position on securing the Web, primarily through the use
+        of encryption.</p>
   </section>
   <section id="sotd">
       <p><em>This is a draft TAG finding; it does not yet have any standing.</em></p>
@@ -111,8 +112,9 @@
     <p>
         Therefore, the TAG finds that the Web platform should be designed to <strong>actively
         prefer secure origins</strong> — typically, by encouraging use of HTTPS URLs instead of
-        HTTP ones. Furthermore, the <strong>end-to-end nature of TLS encryption must not be
-        compromised</strong> on the Web, in order to preserve this trust.
+        HTTP ones (although exceptions like "localhost" do exist). Furthermore, the
+        <strong>end-to-end nature of TLS encryption must not be compromised</strong> on the Web, in
+        order to preserve this trust.
     </p>
     <p>
         We recognize that HTTPS will not solve all security problems in the Web platform, both
@@ -159,8 +161,8 @@
         most immediate is that new, "powerful" features</strong> should be specified to either
         require them, or give them preferential treatment. The <a
         href="http://www.w3.org/2011/webappsec/">Web Applications Security Working Group</a> has
-        begun work on [[powerful-features]] to fully specify this, along with how existing
-        specifications should be handled. The TAG will work with WebAppSec to develop this
+        begun work on [[powerful-features]] to fully specify what this means, along with how
+        existing specifications should be handled. The TAG will work with WebAppSec to develop this
         document.
     </p>
     <p>
