@@ -102,8 +102,20 @@
     <p>
         Furthermore, security on the Web has proven to be quite subtle. If an attacker can modify
         content in transit, the power of the Web platform we are defining can easily be turned
-        against the user (or the site they are using). If a request for something as simple as an
-        image is sent in the clear, an attacker can infer what the user is doing.
+        against the user (or the site they are using). For example, networks can and do insert
+        advertisements into unencrypted Web pages; by its nature, this includes the ability to
+        track users. More hostile attacks include inserting persistent code into the browser that
+        is run on subsequent visits. Notably, these risks are just as present for users of "plain"
+        Web sites as they are for those using more sophisticated, interactive sites.
+    </p>
+    <p>
+        Also, if a request for something as simple as an image is sent in the clear, an attacker
+        can infer what the user is doing. While in some cases this can be harmless, it is extremely
+        difficult to tell when this is the case. For example, accessing material that seems
+        innocuous to the content provider might cause a user in another jurisdiction to be
+        persecuted. Securing the Web maintains communication as an essentially two-party
+        interaction, with delegation or supervision by a third party only with the explicit consent
+        of one of them.
     </p>
     <p>
         Finally, attacks like Pervasive Monitoring [[RFC7258]] only increase the urgency and
