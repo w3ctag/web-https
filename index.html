@@ -69,8 +69,8 @@
     <p>The TAG finds that:</p>
 
     <ul>
-      <li>The Web platform should be designed to actively prefer secure origins — typically, by
-      encouraging use of HTTPS URLs instead of HTTP ones.</li>
+      <li>The Web platform should be designed to actively prefer secure commuication — typically,
+      by encouraging use of HTTPS URLs instead of HTTP ones.</li>
       <li>The end-to-end nature of TLS encryption must not be compromised on the Web, in order to
       preserve this trust.</li>
     </ul>
@@ -123,8 +123,8 @@
     </p>
     <p>
         Therefore, the TAG finds that the Web platform should be designed to <strong>actively
-        prefer secure origins</strong> — typically, by encouraging use of HTTPS URLs instead of
-        HTTP ones (although exceptions like "localhost" do exist). Furthermore, the
+        prefer secure communication</strong> — typically, by encouraging use of HTTPS URLs instead
+        of HTTP ones (although exceptions like "localhost" do exist). Furthermore, the
         <strong>end-to-end nature of TLS encryption must not be compromised</strong> on the Web, in
         order to preserve this trust.
     </p>
@@ -169,22 +169,22 @@
     <h3 id="implementation">Implementation</h3>
 
     <p>
-        Actively preferring secure origins has a number of implications for Web specifications; the
-        most immediate is that new, "powerful" features</strong> should be specified to either
-        require them, or give them preferential treatment. The <a
-        href="http://www.w3.org/2011/webappsec/">Web Applications Security Working Group</a> has
-        begun work on [[powerful-features]] to fully specify what this means, along with how
-        existing specifications should be handled. The TAG will work with WebAppSec to develop this
-        document.
+        Actively preferring secure communication has a number of implications for Web
+        specifications; the most immediate is that new, "powerful" features</strong> that involve
+        network communication should be specified to either require use of encryption, or give it
+        preferential treatment. The <a href="http://www.w3.org/2011/webappsec/">Web Applications
+        Security Working Group</a> has begun work on [[powerful-features]] to fully specify what
+        this means, along with how existing specifications should be handled. The TAG will work
+        with WebAppSec to develop this document.
     </p>
     <p>
-        Simultaneously, reducing the costs of switching to and using HTTPS should be a continuing
-        area of focus for the W3C. In particular, features that change behavior based upon the URL
-        scheme ("http" to "https") should be examined to see if these differences can either be
-        eliminated or controlled by authors, providing that there is no loss of security or
-        surprising changes in behavior. For example, the [[referrer-policy]] specification is
-        offering more control over the Referer HTTP header, as part of [[CSP2]]. The TAG encourages
-        work to identify similar areas of friction and potential mitigations.
+        Simultaneously, reducing the costs of using encryption should be a continuing area of focus
+        for the W3C. In particular, features that change behavior based upon the URL scheme ("http"
+        to "https") should be examined to see if these differences can either be eliminated or
+        controlled by authors, providing that there is no loss of security or surprising changes in
+        behavior. For example, the [[referrer-policy]] specification is offering more control over
+        the Referer HTTP header, as part of [[CSP2]]. The TAG encourages work to identify similar
+        areas of friction and potential mitigations.
     </p>
     <p>
         To facilitate this policy, the TAG encourages continuing improvement of both TLS and its
