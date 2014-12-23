@@ -105,7 +105,7 @@
     </p>
     <p>
         For example, networks can and do insert advertisements into unencrypted Web pages; by
-        nature, this includes the ability to track users. More hostile attacks include inserting
+        nature, this conveys the ability to track users. More hostile attacks include inserting
         persistent code into the browser that is run on subsequent visits ("cache poisoning").
         Notably, these risks are just as present for users of "plain" Web sites as they are for
         those using more sophisticated, interactive sites.
@@ -120,7 +120,7 @@
     </p>
     <p>
         Finally, attacks like Pervasive Monitoring [[RFC7258]] only increase the urgency and
-        relevance of establishing a basis for trust on the entire Web.
+        relevance of establishing a basis for trust on the Web.
     </p>
     
     <h2>Encouraging Encryption on the Web</h2>
@@ -151,8 +151,8 @@
         We acknowledge that in some cases, networks currently rely upon cleartext access to flows
         to impose policy (e.g., filtering). However, the Web is fundamentally two-party
         communiation, and therefore policy imposition is best performed in the user agent and/or
-        origin server (although more work needs to be done in the platform to facilitate this, from
-        both ends).
+        origin server, or in explicit coordination with one or both of them (although more work
+        needs to be done in the platform to facilitate this, from both ends).
     </p>
     <p>
         Similiarly, we recognize that as this policy is implemented, it will reduce the utility of
@@ -160,7 +160,8 @@
         those interposed by the network ("interception proxies", a.k.a. "transparent proxies").
         Such optimizations are not a valid reason to violate trust on the Web, and it is notable
         that many high traffic Web sites have transitioned to HTTPS already without breaking the
-        Internet, or compromising on their users' experience.
+        Internet, or compromising on their users' experience. As above, further research is
+        warranted.
     </p>
     <p>
         Finally, some have expressed fear that an encrypted Web will benefit those with purposes
