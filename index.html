@@ -186,6 +186,13 @@
         work to identify similar areas of friction and potential mitigations.
     </p>
     <p>
+        Changing sites from "http://" to "https://" necessitates changing links to resources. While
+        this is potentially expensive, the ability to redirect requests (e.g. using the 301 Moved
+        Permenantly status code) helps ease the transition. Additionally, Strict Transport Security
+        [[RFC6797]] provides for servers to assert that a "http://" origin has been replaced by an
+        "https://" one.
+    </p>
+    <p>
         To facilitate this finding, the TAG encourages continuing improvement of both TLS and its
         use in Web protocols, while acknowledging that some of this work may not be best suited for
         the W3C. In particular:
