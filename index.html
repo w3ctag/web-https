@@ -70,7 +70,7 @@
 
     <ul>
       <li>The Web platform should be designed to actively prefer secure communication — typically,
-      by encouraging use of HTTPS URLs instead of HTTP ones.</li>
+      by encouraging use of "https://" URLs instead of "http://" ones.</li>
       <li>The end-to-end nature of TLS encryption must not be compromised on the Web.</li>
     </ul>
 
@@ -91,14 +91,12 @@
     <p>
         These important properties of authentication, integrity and confidentiality are best — if
         imperfectly — provided on the Web by Transport Layer Security (TLS) [[RFC5246]]. For the
-        HTTP protocol, this means using HTTPS URLs.
+        HTTP protocol, this means using "https://" URLs.
     </p>
     <p>
         In the past, Web sites have deployed HTTPS rarely; often, only when financial transactions
         take place. More recently, however, it has become apparent that nearly all activity on the
         Web can be considered sensitive, since it now plays such a central role in everyday life.
-    </p>
-    <p>
         This is because security on the Web has proven to be quite subtle. If an attacker can
         modify content in transit, the power of the Web platform we are defining can easily be
         turned against the user (or the site they are using).
@@ -111,9 +109,9 @@
         those using more sophisticated, interactive sites.
     </p>
     <p>
-        Also, if confidentiality is lost, something as simple as an image request in the clear can
-        give an attacker information about what the user is doing, opening an opportunity for
-        further attacks.
+        Also, if confidentiality is lost, something as simple as an image request "in the clear"
+        (i.e., unencrypted) can give an attacker information about what the user is doing, opening
+        an opportunity for further attacks.
     </p>
     <p>
         Finally, attacks like Pervasive Monitoring [[RFC7258]] only increase the urgency and
@@ -124,8 +122,8 @@
     
     <p>
         Therefore, the TAG finds that the Web platform should be designed to <strong>actively
-        prefer secure communication</strong> — typically, by encouraging use of HTTPS URLs instead
-        of HTTP ones (although exceptions like "localhost" do exist). Furthermore, the
+        prefer secure communication</strong> — typically, by encouraging use of "https://" URLs
+        instead of "http://" ones (although exceptions like "localhost" do exist). Furthermore, the
         <strong>end-to-end nature of TLS encryption must not be compromised</strong> on the Web, in
         order to preserve this trust.
     </p>
@@ -147,7 +145,7 @@
     <p>
         We acknowledge that in some cases, networks currently rely upon cleartext access to flows
         to impose policy (e.g., filtering). However, the Web is fundamentally two-party
-        communiation, and therefore policy imposition is best performed in the user agent and/or
+        communication, and therefore policy imposition is best performed in the user agent and/or
         origin server, or in explicit coordination with one or both of them (although more work
         needs to be done in the platform to facilitate this, from both ends).
     </p>
@@ -157,7 +155,7 @@
         those interposed by the network ("interception proxies", a.k.a. "transparent proxies").
         Such optimizations are not a valid reason to violate trust on the Web, and it is notable
         that many high traffic Web sites have transitioned to HTTPS already without breaking the
-        Internet, or compromising on their users' experience. That said, further research into
+        Internet, or compromising their users' experience. That said, further research into
         alternative approaches to optimisation without sacrificing security is warranted.
     </p>
     <p>
@@ -171,21 +169,21 @@
 
     <p>
         Actively preferring secure communication has a number of implications for Web
-        specifications; the most immediate is that new, "powerful" features</strong> that involve
+        specifications. The most immediate is that new, "powerful" features</strong> that involve
         network communication should be specified to either require use of encryption, or give it
         preferential treatment. The <a href="http://www.w3.org/2011/webappsec/">Web Applications
-        Security Working Group</a> has begun work on [[powerful-features]] to fully specify what
-        this means, along with how existing specifications should be handled. The TAG will work
-        with WebAppSec to develop this document.
+        Security Working Group (WebAppSec)</a> has begun work on [[powerful-features]] to fully
+        specify what this means, along with how existing specifications should be handled. The TAG
+        will work with WebAppSec to develop this document.
     </p>
     <p>
         Simultaneously, reducing the costs of using encryption should be a continuing area of focus
-        for the W3C. In particular, features that change behavior based upon the URL scheme ("http"
-        to "https") should be examined to see if these differences can either be eliminated or
-        controlled by authors, providing that there is no loss of security or surprising changes in
-        behavior. For example, the [[referrer-policy]] specification is offering more control over
-        the Referer HTTP header, as part of [[CSP2]]. The TAG encourages work to identify similar
-        areas of friction and potential mitigations.
+        for the W3C. In particular, features that change behavior based upon the URL scheme
+        ("http://" to "https://") should be examined to see if these differences can either be
+        eliminated or controlled by authors, provided that there is no loss of security or
+        surprising changes in behavior. For example, the [[referrer-policy]] specification is
+        offering more control over the Referer HTTP header, as part of [[CSP2]]. The TAG encourages
+        work to identify similar areas of friction and potential mitigations.
     </p>
     <p>
         To facilitate this finding, the TAG encourages continuing improvement of both TLS and its
