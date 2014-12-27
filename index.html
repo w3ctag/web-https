@@ -203,10 +203,12 @@
               href="https://letsencrypt.org/">Let's Encrypt</a>.
           </li>
           <li>
-              Deploying HTTPS is problematic in some networks; for example, in private network
-              address ranges [[RFC1918]] it is impractical to obtain or use a certificate,
-              because these addresses are not globally unique. Some other mechanism of establishing
-              identity for local communication is necessary.
+              Deploying HTTPS is problematic in some networks. For example, in small, ad-hoc
+              networks (e.g., home networks), it's common to use private network address ranges
+              [[RFC1918]] to access things like printers, routers and so on using the bare IP
+              address. Because a certificate cannot be obtained for these addressess, and because
+              giving globally-unique DNS names to these devices is impractical, anther approach is
+              needed.
           </li>
           <li>
               Increasing the trustworthiness of the PKI system (on which HTTPS is currently
