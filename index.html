@@ -201,6 +201,13 @@
         "https://" one.
     </p>
     <p>
+        When transitioning from "http://" to "https://", applications that depend upon resources 
+        that have not yet changed (e.g., "mashups") can experience difficulties, because of the
+        Mixed Content policy [[mixed-content]]. Temporary work-arounds for this problem include
+        using proxies to access such data, although we note that doing so diminishes other benefits
+        of the Web architecture, in order to improve security.
+    </p>
+    <p>
         To facilitate this finding, the TAG encourages continuing improvement of both TLS and its
         use in Web protocols, while acknowledging that some of this work may not be best suited for
         the W3C. In particular:
