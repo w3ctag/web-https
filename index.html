@@ -143,6 +143,14 @@
         the platform, rather than reasons to stop adoption of encryption.
     </p>
     <p>
+        Historically, the perceived performance of HTTPS has been worse than that of cleartext
+        HTTP, because of the protocol overhead. However, recent developments such as HTTP/2, OCSP
+        Stapling and TLS session tickets have reduced this overhead to the point where the deficit
+        is minor -- often, inperceptible (see <a href="https://istlsfastyet.com">Is TLS Fast
+        Yet?</a> for details). We expect that future developments (such as TLS/1.3) will further
+        reduce the performance penalty of encryption.
+    </p>
+    <p>
         We acknowledge that in some cases, networks currently rely upon cleartext access to flows
         to impose policy (e.g., filtering). However, the Web is fundamentally two-party
         communication, and therefore policy imposition is best performed in the user agent and/or
