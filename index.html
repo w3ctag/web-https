@@ -142,43 +142,43 @@
 
     <dl>
     <dt>Evaluating "Powerful" Features</dt>
-    <dd>
+    <dd><p>
         Many new Web platform features offer increased capabilities, access to data and richer
         functionality. Some of these "powerful" features also have significant security and privacy
         implications, and Working Groups should consider whether they ought only be used over an
         encrypted connection. The <a href="http://www.w3.org/2011/webappsec/">Web Applications
         Security Working Group</a> (WebAppSec) has begun work on [[powerful-features]] to document
         best practices in this area.
-    </dd>
+    </p></dd>
 
     <dt>Controlling Scheme-dependent Behaviors</dt>
-    <dd>
+    <dd><p>
         Existing specifications that change behavior based upon the URL scheme ("http://" vs.
         "https://") should be examined to see if these differences can either be eliminated or
         controlled by authors, provided that there is no loss of security or surprising changes in
         behavior. For example, the [[referrer-policy]] specification is offering more control over
         the Referer HTTP header, as part of [[CSP2]].
-    </dd>
+    </p></dd>
 
     <dt>Managing Changing Links</dt>
-    <dd>
+    <dd><p>
         Updating sites from "http://" to "https://" necessitates changing links to resources, which
         is counter to the good practice of "avoiding URI aliases" [[webarch]]. To mitigate such
         changes, Working Groups (in particular, those dealing with Linked Data) should consider how
         redirects (like 301 Moved Permanently) and Strict Transport Security [[RFC6769]] can be
         used to assert that a "http://" origin has been replaced by an "https://" one.
-    </dd>
+    </p></dd>
 
     <dt>Transitioning Mashups</dt>
-    <dd>
+    <dd><p>
         When transitioning from "http://" to "https://", applications that depend upon third-party
         resources ("mashups") that have not yet changed to "https://" themselves can experience
         difficulties, because of the Mixed Content policy [[mixed-content]]. We encourage WebAppSec
         to examine this problem.
-    </dd>
+    </p></dd>
 
     <dt>Facilitating Shared Caching</dt>
-    <dd>
+    <dd><p>
         Adopting "https://" has the side effect of disallowing shared HTTP caching [[RFC7234]].
         Shared caching has a limited role on the Web today; many high traffic sites either
         discourage caching with metadata, or disallow it by already using "https://". However, it
@@ -186,35 +186,35 @@
         desirable; in some cases, it might be so desirable that networks require users to accept
         TLS Man-in-the-Middle. Therefore, we encourage exploration of alternative mechanisms that
         preserve security more robustly, such as certain uses of Subresource Integrity [[SRI]].
-    </dd>
+    </p></dd>
 
     <dt>Browser Policy APIs</dt>
-    <dd>
+    <dd><p>
         Similarly, adopting "https://" makes the practice of imposing policy in intermediaries
         (e.g., in schools and workplaces, by parents, in prisons) more difficult. While TLS
         Man-in-the-Middle is one solution to this, it is a blunt one, sacrificing substantial
         security when they are used. Therefore, we encourage development of facilities to enable
         imposition of policy -- when it is necessary -- in a more controlled way, e.g., as new APIs
         in Web browsers.
-    <dd>
+    </p><dd>
 
     <dt>Documentation of Best Practices</dt>
-    <dd>
+    <dd><p>
         Changing to "https://" is often difficult, for a variety of reasons. We encourage
         development of documentation to aid Web content creators, administrators and implementers
         in this process. In particular, since W3C has expertise in the implications upon content
         creators, our documentation should focus on this audience.
-    </dd>
+    </p></dd>
 
     <dt>User Experience of Security</dt>
-    <dd>
+    <dd><p>
         Educating and interacting with users regarding security is notoriously difficult. Even so,
         we encourage the implementer community to continuously challenge their assumptions in this
         space; for example, there is currently a discussion changing how "http://" URLs are
         presented so that they are marked insecure, or even defaulting to "https://" when a URL
         reference without a scheme is input. Where appropriate, we also encourage these discussions
         to take place in W3C fora.
-    </dd>
+    </p></dd>
 
   </dl>
 
@@ -267,25 +267,25 @@
 
     <dl>
     <dt>"https://" doesn't address security issues on the server itself</dt>
-    <dd>
+    <dd><p>
         Encryption will not solve all security problems in the Web platform, both
         because it does not address many types of attack, and because TLS itself has been shown to
         have flaws in the past (and presumably will again). However, it does serve as an important
         and necessary baseline for further improvements to security. This is especially true as the
         platform becomes more powerful, and thus more dangerous to use “in the clear”.
-    </dd>
+    </p></dd>
 
     <dt>TLS has too much CPU overhead</dt>
-    <dd>
+    <dd><p>
         The CPU overhead of TLS has largely been overcome by advances in processor technology;
         modern CPUs are much faster, use less power, and often have specialized chips for
         accelerating cryptography. As a result, many sites report that encryption overhead is
         manageable, or even "in the noise." However, note that some specialized techniques for very
         high performance servers (such as sendfile() and TCP Splice) are unavailable when using TLS.
-    </dd>
+    </p></dd>
 
     <dt>"https://" has substantial impact upon perceived performance</dt>
-    <dd>
+    <dd><p>
         Historically, the perceived performance of HTTPS has been worse than that of cleartext
         HTTP, because of the extra round trips that the handshake and certificate validation
         require. However, recent developments such as OCSP Stapling [[RFC6961]] and TLS session
@@ -293,7 +293,7 @@
         often, imperceptible (see <a href="https://istlsfastyet.com">Is TLS Fast Yet?</a> for
         details). We expect that future developments (such as TLS/1.3) will further reduce the
         performance penalty of encryption.
-    </dd>
+    </p></dd>
 
     </dl>
 
