@@ -14,7 +14,7 @@
                     url:        "https://www.mnot.net/",
     			}
           ],
-          
+
           otherLinks: [{
             key: 'Participate',
             data: [{
@@ -31,7 +31,7 @@
                       href: 'http://lists.w3.org/Archives/Public/www-tag/'
             }]
           }],
-          
+
           wg:           "Technical Architecture Group",
           wgURI:        "http://www.w3.org/2001/tag/",
           wgPublicList: "www-tag",
@@ -66,17 +66,8 @@
       <p>See the <a href="https://github.com/w3ctag/web-https">repository</a> for source and issues
       list.</p>
   </section>
-    <h2>Summary of Finding</h2>
-    
-    <p>The TAG finds that:</p>
 
-    <ul>
-      <li>The Web platform should be designed to actively prefer secure communication — typically,
-      by encouraging use of "https://" URLs instead of "http://" ones.</li>
-      <li>The end-to-end nature of TLS encryption must not be compromised on the Web.</li>
-    </ul>
-
-    <h2>Motivation</h2>
+    <h2>Motivating a Secure Web</h2>
 
     <p>
         Over the last 25 years, the Web has grown into a platform for much of the world’s
@@ -93,19 +84,21 @@
     <p>
         These important properties of authentication, integrity and confidentiality are best — if
         imperfectly — provided on the Web by Transport Layer Security (TLS) [[RFC5246]]. For the
-        HTTP protocol, this means using "https://" URLs.
+        HTTP protocol, this means using "https://" URLs [[RFC7230]].
     </p>
     <p>
         In the past, Web sites have deployed HTTPS rarely; often, only when financial transactions
         take place. More recently, however, it has become apparent that nearly all activity on the
         Web can be considered sensitive, since it now plays such a central role in everyday life.
-        This is because security on the Web has proven to be quite subtle. If an attacker can
+    </p>
+    <p>
+        At the same time, security on the Web has proven to be quite subtle. If an attacker can
         modify content in transit, the power of the Web platform we are defining can easily be
         turned against the user (or the site they are using).
     </p>
     <p>
-        For example, networks can and do insert advertisements into unencrypted Web pages; by
-        nature, this conveys the ability to track users. More hostile attacks include inserting
+        For example, networks can (and some do) insert advertisements into unencrypted Web pages; by
+        nature, this conveys the ability to track users. Even more hostile attacks include inserting
         persistent code into the browser that is run on subsequent visits ("cache poisoning").
         Notably, these risks are just as present for users of "plain" Web sites as they are for
         those using more sophisticated, interactive sites.
@@ -113,102 +106,120 @@
     <p>
         Also, if confidentiality is lost, something as simple as an image request "in the clear"
         (i.e., unencrypted) can give an attacker information about what the user is doing, opening
-        an opportunity for further attacks.
+        an opportunity for further attacks -- again, even if the content being accessed seems
+        innocuous.
     </p>
     <p>
-        Finally, attacks like Pervasive Monitoring [[RFC7258]] only increase the urgency and
-        relevance of establishing a basis for trust on the Web.
-    </p>
-    
-    <h2>Encouraging Encryption on the Web</h2>
-    
-    <p>
-        Therefore, the TAG finds that the Web platform should be designed to <strong>actively
-        prefer secure communication</strong> — typically, by encouraging use of "https://" URLs
-        instead of "http://" ones (although exceptions like "localhost" do exist). Furthermore, the
-        <strong>end-to-end nature of TLS encryption must not be compromised</strong> on the Web, in
-        order to preserve this trust.
+        Finally, widespread attacks like Pervasive Monitoring [[RFC7258]] further erode users' trust
+        in the Web -- whether they be activists, businesses or ordinary citizens.
     </p>
     <p>
-        We recognize that encryption will not solve all security problems in the Web platform, both
-        because it does not address many types of attack, and because TLS itself has been shown to
-        have flaws in the past (and presumably will again). However, it does serve as an important
-        and necessary baseline for further improvements to security. This is especially true as the
-        platform becomes more powerful, and thus more dangerous to use “in the clear”.
+        This leads us to a conclusion that server authentication and integrity are baseline
+        requirements for the continued success of the Web. Furthermore, confidentiality -- while
+        not always strictly necessary -- is often a desirable property, and it is difficult to
+        predict or know when it is necessary.
     </p>
     <p>
-        Likewise, we realize that transitioning to HTTPS may not be easy for all sites. While the
-        CPU overhead of TLS has been largely overcome by advances in processor technology, the Web
-        platform itself makes changing schemes difficult, both because URLs themselves need to
-        change, and because the URL scheme is also used to trigger different behavior in many
-        platform features. These problems ought to be viewed as opportunities for improvement in
-        the platform, rather than reasons to stop adoption of encryption.
-    </p>
-    <p>
-        Historically, the perceived performance of HTTPS has been worse than that of cleartext
-        HTTP, because of the protocol overhead. However, recent developments such as HTTP/2, OCSP
-        Stapling and TLS session tickets have reduced this overhead to the point where the deficit
-        is minor -- often, inperceptible (see <a href="https://istlsfastyet.com">Is TLS Fast
-        Yet?</a> for details). We expect that future developments (such as TLS/1.3) will further
-        reduce the performance penalty of encryption.
-    </p>
-    <p>
-        We acknowledge that in some cases, networks currently rely upon cleartext access to flows
-        to impose policy (e.g., filtering). However, the Web is fundamentally two-party
-        communication, and therefore policy imposition is best performed in the user agent and/or
-        origin server, or in explicit coordination with one or both of them (although more work
-        needs to be done in the platform to facilitate this, from both ends).
-    </p>
-    <p>
-        Similiarly, we recognize that as this finding is implemented, it will reduce the utility of
-        network-based optimizations -- in particular, shared caches in HTTP proxies, as well as
-        those interposed by the network ("interception proxies", a.k.a. "transparent proxies").
-        Such optimizations are not a valid reason to violate trust on the Web, and it is notable
-        that many high traffic Web sites have transitioned to HTTPS already without breaking the
-        Internet, or compromising their users' experience. That said, further research into
-        alternative approaches to optimisation without sacrificing security is warranted.
-    </p>
-    <p>
-        Finally, some have expressed fear that an encrypted Web will benefit those with purposes
-        that are distasteful or even dangerous. We reject these arguments; the Web is a tool that
-        can be used to many ends, and possible misuse does not imply that the tool should be so
-        limited as to not be fit for its purpose.
-    </p>
+        Therefore, the TAG finds that:
+    <ul>
+      <li>The Web platform should be designed to <strong>actively prefer secure
+      communication</strong> — typically, by encouraging use of "https://" URLs instead of
+      "http://" ones (although exceptions like "localhost" do exist).</li>
+      <li><strong>Barriers to adopting "https://" should be removed</strong> where feasible.</li>
+      <li>The <strong>end-to-end nature of TLS encryption must not be compromised</strong> on the
+      Web, in order to preserve trust.</li>
+    </ul>
+  </p>
 
-    <h2 id="implementation">Further Work</h2>
+
+    <h2 id="implementation">Building A Secure Web with W3C Standards</h2>
 
     <p>
-        Actively preferring secure communication has a number of implications for Web
-        specifications. The most immediate is that new, "powerful" features</strong> that involve
-        network communication should be specified to either require use of encryption, or give it
-        preferential treatment. The <a href="http://www.w3.org/2011/webappsec/">Web Applications
-        Security Working Group (WebAppSec)</a> has begun work on [[powerful-features]] to fully
-        specify what this means, along with how existing specifications should be handled. The TAG
-        will work with WebAppSec to develop this document.
+        Within the W3C, there are a number of potential areas to both mitigate issues encountered
+        in transitioning to and using encryption, as well as ways to encourage its use. This
+        includes (but is not limited to):
     </p>
-    <p>
-        Simultaneously, reducing the costs of using encryption should be a continuing area of focus
-        for the W3C. In particular, features that change behavior based upon the URL scheme
-        ("http://" to "https://") should be examined to see if these differences can either be
-        eliminated or controlled by authors, provided that there is no loss of security or
-        surprising changes in behavior. For example, the [[referrer-policy]] specification is
-        offering more control over the Referer HTTP header, as part of [[CSP2]]. The TAG encourages
-        work to identify similar areas of friction and potential mitigations.
-    </p>
-    <p>
-        Changing sites from "http://" to "https://" necessitates changing links to resources. While
-        this is potentially expensive, the ability to redirect requests (e.g. using the 301 Moved
-        Permenantly status code) helps ease the transition. Additionally, Strict Transport Security
-        [[RFC6797]] provides for servers to assert that a "http://" origin has been replaced by an
-        "https://" one.
-    </p>
-    <p>
-        When transitioning from "http://" to "https://", applications that depend upon resources 
-        that have not yet changed (e.g., "mashups") can experience difficulties, because of the
-        Mixed Content policy [[mixed-content]]. Temporary work-arounds for this problem include
-        using proxies to access such data, although we note that doing so diminishes other benefits
-        of the Web architecture, in order to improve security.
-    </p>
+
+    <dl>
+    <dt>Evaluating "Powerful" Features</dt>
+    <dd>
+        Many new Web platform features offer increased capabilities, access to data and richer
+        functionality. Some of these "powerful" features also have significant security and privacy
+        implications, and Working Groups should consider whether they ought only be used over an
+        encrypted connection. The <a href="http://www.w3.org/2011/webappsec/">Web Applications
+        Security Working Group</a> (WebAppSec) has begun work on [[powerful-features]] to document
+        best practices in this area.
+    </dd>
+
+    <dt>Controlling Scheme-dependent Behaviors</dt>
+    <dd>
+        Existing specifications that change behavior based upon the URL scheme ("http://" vs.
+        "https://") should be examined to see if these differences can either be eliminated or
+        controlled by authors, provided that there is no loss of security or surprising changes in
+        behavior. For example, the [[referrer-policy]] specification is offering more control over
+        the Referer HTTP header, as part of [[CSP2]].
+    </dd>
+
+    <dt>Managing Changing Links</dt>
+    <dd>
+        Updating sites from "http://" to "https://" necessitates changing links to resources, which
+        is counter to the good practice of "avoiding URI aliases" [[webarch]]. To mitigate such
+        changes, Working Groups (in particular, those dealing with Linked Data) should consider how
+        redirects (like 301 Moved Permanently) and Strict Transport Security [[RFC6769]] can be
+        used to assert that a "http://" origin has been replaced by an "https://" one.
+    </dd>
+
+    <dt>Transitioning Mashups</dt>
+    <dd>
+        When transitioning from "http://" to "https://", applications that depend upon third-party
+        resources ("mashups") that have not yet changed to "https://" themselves can experience
+        difficulties, because of the Mixed Content policy [[mixed-content]]. We encourage WebAppSec
+        to examine this problem.
+    </dd>
+
+    <dt>Facilitating Shared Caching</dt>
+    <dd>
+        Adopting "https://" has the side effect of disallowing shared HTTP caching [[RFC7234]].
+        Shared caching has a limited role on the Web today; many high traffic sites either
+        discourage caching with metadata, or disallow it by already using "https://". However, it
+        is still useful, and in some cases (in particular, access from limited networks), highly
+        desirable; in some cases, it might be so desirable that networks require users to accept
+        TLS Man-in-the-Middle. Therefore, we encourage exploration of alternative mechanisms that
+        preserve security more robustly, such as certain uses of Subresource Integrity [[SRI]].
+    </dd>
+
+    <dt>Browser Policy APIs</dt>
+    <dd>
+        Similarly, adopting "https://" makes the practice of imposing policy in intermediaries
+        (e.g., in schools and workplaces, by parents, in prisons) more difficult. While TLS
+        Man-in-the-Middle is one solution to this, it is a blunt one, sacrificing substantial
+        security when they are used. Therefore, we encourage development of facilities to enable
+        imposition of policy -- when it is necessary -- in a more controlled way, e.g., as new APIs
+        in Web browsers.
+    <dd>
+
+    <dt>Documentation of Best Practices</dt>
+    <dd>
+        Changing to "https://" is often difficult, for a variety of reasons. We encourage
+        development of documentation to aid Web content creators, administrators and implementers
+        in this process. In particular, since W3C has expertise in the implications upon content
+        creators, our documentation should focus on this audience.
+    </dd>
+
+    <dt>User Experience of Security</dt>
+    <dd>
+        Educating and interacting with users regarding security is notoriously difficult. Even so,
+        we encourage the implementer community to continuously challenge their assumptions in this
+        space; for example, there is currently a discussion changing how "http://" URLs are
+        presented so that they are marked insecure, or even defaulting to "https://" when a URL
+        reference without a scheme is input. Where appropriate, we also encourage these discussions
+        to take place in W3C fora.
+    </dd>
+
+  </dl>
+
+  <h2>Work Outside the W3C</h2>
+
     <p>
         To facilitate this finding, the TAG encourages continuing improvement of both TLS and its
         use in Web protocols, while acknowledging that some of this work may not be best suited for
@@ -223,7 +234,7 @@
               Deploying HTTPS is problematic in some networks. For example, in small, ad-hoc
               networks (e.g., home networks), it's common to use private network address ranges
               [[RFC1918]] to access things like printers, routers and so on using the bare IP
-              address. Because a certificate cannot be obtained for these addressess, and because
+              address. Because a certificate cannot be obtained for these addresses, and because
               giving globally-unique DNS names to these devices is impractical, anther approach is
               needed.
           </li>
@@ -238,17 +249,58 @@
               browsers" which automatically proxy and transform traffic (sometimes including
               HTTPS), as well as the continuing practice of inserting new Certificate Authorities
               into a users' trust store without informing them of the power this grants. While both
-              have legitimate uses, the implications for trust on the Web should be examined.
+              have legitimate uses, the implications for trust on the Web should be examined,
+              and Web users educated about the trade-offs involved.
           </li>
         </ul>
     </p>
+
+
+
+
+    <h2 class="appendix">Other Concerns about HTTPS</h2>
+
     <p>
-        Finally, imposing policy in endpoints implies creation of a browser API for doing so. The
-        TAG encourages work in this area, provided there is a good chance of implementation and a
-        reasonable outcome.
+        Transitioning Web sites to "https://" URLs often brings up concerns that aren't covered
+        in the issues discussed above, including:
     </p>
 
-    <h2>Acknowledgements</h2>
+    <dl>
+    <dt>"https://" doesn't address security issues on the server itself</dt>
+    <dd>
+        Encryption will not solve all security problems in the Web platform, both
+        because it does not address many types of attack, and because TLS itself has been shown to
+        have flaws in the past (and presumably will again). However, it does serve as an important
+        and necessary baseline for further improvements to security. This is especially true as the
+        platform becomes more powerful, and thus more dangerous to use “in the clear”.
+    </dd>
+
+    <dt>TLS has too much CPU overhead</dt>
+    <dd>
+        The CPU overhead of TLS has largely been overcome by advances in processor technology;
+        modern CPUs are much faster, use less power, and often have specialized chips for
+        accelerating cryptography. As a result, many sites report that encryption overhead is
+        manageable, or even "in the noise." However, note that some specialized techniques for very
+        high performance servers (such as sendfile() and TCP Splice) are unavailable when using TLS.
+    </dd>
+
+    <dt>"https://" has substantial impact upon perceived performance</dt>
+    <dd>
+        Historically, the perceived performance of HTTPS has been worse than that of cleartext
+        HTTP, because of the extra round trips that the handshake and certificate validation
+        require. However, recent developments such as OCSP Stapling [[RFC6961]] and TLS session
+        tickets [[RFC5077]] have reduced this overhead to the point where the deficit is minor --
+        often, imperceptible (see <a href="https://istlsfastyet.com">Is TLS Fast Yet?</a> for
+        details). We expect that future developments (such as TLS/1.3) will further reduce the
+        performance penalty of encryption.
+    </dd>
+
+    </dl>
+
+
+
+
+    <h2 class="appendix">Acknowledgements</h2>
 
     <p>
         This finding builds upon and explicitly acknowledges the Internet Architecture Board’s <a
