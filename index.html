@@ -121,6 +121,7 @@
     </p>
     <p>
         Therefore, the TAG finds that:
+    </p>
     <ul>
       <li>The Web platform should be designed to <strong>actively prefer secure
       communication</strong> — typically, by encouraging use of "https://" URLs instead of
@@ -129,7 +130,7 @@
       <li>The <strong>end-to-end nature of TLS encryption must not be compromised</strong> on the
       Web, in order to preserve trust.</li>
     </ul>
-  </p>
+
 
 
     <h2 id="implementation">Building A Secure Web with W3C Standards</h2>
@@ -224,38 +225,36 @@
         To facilitate this finding, the TAG encourages continuing improvement of both TLS and its
         use in Web protocols, while acknowledging that some of this work may not be best suited for
         the W3C. In particular:
-        <ul>
-          <li>
-              Addressing the financial and administrative costs of TLS are critical to improving
-              adoption of encryption. We are encouraged by efforts like <a
-              href="https://letsencrypt.org/">Let's Encrypt</a>.
-          </li>
-          <li>
-              Deploying HTTPS is problematic in some networks. For example, in small, ad-hoc
-              networks (e.g., home networks), it's common to use private network address ranges
-              [[RFC1918]] to access things like printers, routers and so on using the bare IP
-              address. Because a certificate cannot be obtained for these addresses, and because
-              giving globally-unique DNS names to these devices is impractical, anther approach is
-              needed.
-          </li>
-          <li>
-              Increasing the trustworthiness of the PKI system (on which HTTPS is currently
-              dependent) remains a challenge. We are tracking efforts like <a
-              href="http://www.certificate-transparency.org">Certificate Transparency</a>
-              [[RFC6962]] in the IETF, and will encourage activity within the W3C when appropriate.
-          </li>
-          <li>
-              Exploring the impact upon trust and security of practices such as so-called "split
-              browsers" which automatically proxy and transform traffic (sometimes including
-              HTTPS), as well as the continuing practice of inserting new Certificate Authorities
-              into a users' trust store without informing them of the power this grants. While both
-              have legitimate uses, the implications for trust on the Web should be examined,
-              and Web users educated about the trade-offs involved.
-          </li>
-        </ul>
     </p>
-
-
+    <ul>
+      <li>
+          Addressing the financial and administrative costs of TLS are critical to improving
+          adoption of encryption. We are encouraged by efforts like <a
+          href="https://letsencrypt.org/">Let's Encrypt</a>.
+      </li>
+      <li>
+          Deploying HTTPS is problematic in some networks. For example, in small, ad-hoc
+          networks (e.g., home networks), it's common to use private network address ranges
+          [[RFC1918]] to access things like printers, routers and so on using the bare IP
+          address. Because a certificate cannot be obtained for these addresses, and because
+          giving globally-unique DNS names to these devices is impractical, anther approach is
+          needed.
+      </li>
+      <li>
+          Increasing the trustworthiness of the PKI system (on which HTTPS is currently
+          dependent) remains a challenge. We are tracking efforts like <a
+          href="http://www.certificate-transparency.org">Certificate Transparency</a>
+          [[RFC6962]] in the IETF, and will encourage activity within the W3C when appropriate.
+      </li>
+      <li>
+          Exploring the impact upon trust and security of practices such as so-called "split
+          browsers" which automatically proxy and transform traffic (sometimes including
+          HTTPS), as well as the continuing practice of inserting new Certificate Authorities
+          into a users' trust store without informing them of the power this grants. While both
+          have legitimate uses, the implications for trust on the Web should be examined,
+          and Web users educated about the trade-offs involved.
+      </li>
+    </ul>
 
 
     <h2 class="appendix">Other Concerns about HTTPS</h2>
