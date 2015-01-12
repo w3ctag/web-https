@@ -183,11 +183,12 @@
     <dd><p>
         Adopting "https://" has the side effect of disallowing shared HTTP caching [[RFC7234]].
         Shared caching has a limited role on the Web today; many high traffic sites either
-        discourage caching with metadata, or disallow it by already using "https://". However, it
-        is still useful, and in some cases (in particular, access from limited networks), highly
-        desirable; in some cases, it might be so desirable that networks require users to accept
-        TLS Man-in-the-Middle. Therefore, we encourage exploration of alternative mechanisms that
-        preserve security more robustly, such as certain uses of Subresource Integrity [[SRI]].
+        discourage caching with metadata, or disallow it by already using "https://". However,
+        shared caching is still considered desirable by some (e.g., in limited networks); in some
+        cases, it might be so desirable that networks require users to accept TLS Man-in-the-Middle
+        -- which is a bad outcome for Web security overall. Therefore, we encourage exploration of
+        alternative mechanisms that preserve security more robustly, such as certain uses of
+        Subresource Integrity [[SRI]].
     </p></dd>
 
     <dt>Browser Policy Extension APIs</dt>
