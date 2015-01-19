@@ -102,7 +102,16 @@
         by nature, this conveys the ability to track users. Even more hostile attacks include
         inserting persistent code into the browser that is run on subsequent visits ("cache
         poisoning"), or changing content (such as editing a company's Web site to affect its stock
-        price). Notably, these risks are just as present for users of "plain" Web sites as they are
+        price). 
+    </p>
+    <p>    
+        An attacker can also access information that might have been stored by a site in previous
+        visits. If this includes a persistent grant of access to a privileged APIs, such as
+        geolocation [[geolocation-API]] or media capture [[media-capture-api]], then the attacker
+        can access those resources using any prior authorization.
+    </p>
+    <p>    
+        Notably, these risks are just as present for users of "plain" Web sites as they are
         for those using more sophisticated, interactive sites.
     </p>
     <p>
