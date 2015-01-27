@@ -1,3 +1,3 @@
-# Transitioning the Web to HTTPS
+# Securing the Web
 
-This is a **[draft](http://w3ctag.github.io/web-https/)** TAG finding. 
+This repo was used to develop the [Securing the Web](http://www.w3.org/2001/tag/doc/web-https) finding, which was approved on 22-Jan-2015.
