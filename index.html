@@ -49,6 +49,15 @@
           }
       };
     </script>
+    
+    <!-- Enforce an HTTPS URL, but only in production. -->
+    <script type="text/javascript">
+        var enforce = "w3ctag.github.io";
+        if ((enforce == window.location.host) && (window.location.protocol != "https:"))
+            window.location.protocol = "https";
+    </script>
+    
+    <link rel="canonical" href="https://w3ctag.github.io/web-https/" />
 </head>
 <body>
   <section id="abstract">
